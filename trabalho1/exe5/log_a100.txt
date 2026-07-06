@@ -1,0 +1,106 @@
+(venv) paulo.rojunior@proj-comunicacoes:~/ml/exe5$ python3 ./vit_fine_tuning_gpu_a100.py 
+1 - MAIN
+Dispositivo: cuda
+GPU: NVIDIA A100 80GB PCIe
+
+Treino    : (45000, 32, 32, 3)
+Validação : (5000, 32, 32, 3)
+Teste     : (10000, 32, 32, 3)
+
+Carregando ViT-B/16 pré-treinado no ImageNet...
+Carregando pesos locais...
+
+Modelo carregado com sucesso.
+Embedding: 768
+Número de classes: 10
+
+Parâmetros totais      : 85,806,346
+Treináveis Fase 1      : 7,690
+
+=================================================================
+FASE 1 — TREINAMENTO DA CABEÇA
+=================================================================
+Fase 1 | Época 01/8 | loss treino: 0.3887 | acc treino: 90.13% | loss val: 0.1920 | acc val: 94.28%
+  Melhor modelo salvo: vit_cifar10_best.pth
+Fase 1 | Época 02/8 | loss treino: 0.1840 | acc treino: 94.32% | loss val: 0.1669 | acc val: 94.94%
+  Melhor modelo salvo: vit_cifar10_best.pth
+Fase 1 | Época 03/8 | loss treino: 0.1622 | acc treino: 94.76% | loss val: 0.1578 | acc val: 95.38%
+  Melhor modelo salvo: vit_cifar10_best.pth
+Fase 1 | Época 04/8 | loss treino: 0.1501 | acc treino: 95.10% | loss val: 0.1483 | acc val: 95.58%
+  Melhor modelo salvo: vit_cifar10_best.pth
+Fase 1 | Época 05/8 | loss treino: 0.1410 | acc treino: 95.38% | loss val: 0.1453 | acc val: 95.82%
+  Melhor modelo salvo: vit_cifar10_best.pth
+Fase 1 | Época 06/8 | loss treino: 0.1364 | acc treino: 95.45% | loss val: 0.1454 | acc val: 95.54%
+Fase 1 | Época 07/8 | loss treino: 0.1323 | acc treino: 95.73% | loss val: 0.1427 | acc val: 95.72%
+Fase 1 | Época 08/8 | loss treino: 0.1264 | acc treino: 95.84% | loss val: 0.1402 | acc val: 95.64%
+
+=================================================================
+FASE 2 — FINE TUNING
+=================================================================
+
+Treináveis Fase 2 : 21,271,306
+Fase 2 | Época 01/20 | loss treino: 0.1167 | acc treino: 96.04% | loss val: 0.1254 | acc val: 96.28% | lr: 0.0000100
+  Melhor modelo salvo: vit_cifar10_best.pth
+Fase 2 | Época 02/20 | loss treino: 0.1004 | acc treino: 96.62% | loss val: 0.1180 | acc val: 96.26% | lr: 0.0000100
+Fase 2 | Época 03/20 | loss treino: 0.0902 | acc treino: 96.96% | loss val: 0.1167 | acc val: 96.44% | lr: 0.0000100
+  Melhor modelo salvo: vit_cifar10_best.pth
+Fase 2 | Época 04/20 | loss treino: 0.0812 | acc treino: 97.27% | loss val: 0.1118 | acc val: 96.46% | lr: 0.0000100
+  Melhor modelo salvo: vit_cifar10_best.pth
+Fase 2 | Época 05/20 | loss treino: 0.0716 | acc treino: 97.59% | loss val: 0.1114 | acc val: 96.60% | lr: 0.0000100
+  Melhor modelo salvo: vit_cifar10_best.pth
+Fase 2 | Época 06/20 | loss treino: 0.0645 | acc treino: 97.84% | loss val: 0.1115 | acc val: 96.56% | lr: 0.0000100
+Fase 2 | Época 07/20 | loss treino: 0.0573 | acc treino: 98.09% | loss val: 0.1136 | acc val: 96.38% | lr: 0.0000100
+Fase 2 | Época 08/20 | loss treino: 0.0513 | acc treino: 98.36% | loss val: 0.1089 | acc val: 96.82% | lr: 0.0000100
+  Melhor modelo salvo: vit_cifar10_best.pth
+Fase 2 | Época 09/20 | loss treino: 0.0453 | acc treino: 98.57% | loss val: 0.1087 | acc val: 96.82% | lr: 0.0000100
+Fase 2 | Época 10/20 | loss treino: 0.0406 | acc treino: 98.79% | loss val: 0.1095 | acc val: 96.80% | lr: 0.0000100
+Fase 2 | Época 11/20 | loss treino: 0.0346 | acc treino: 98.97% | loss val: 0.1099 | acc val: 96.56% | lr: 0.0000100
+Fase 2 | Época 12/20 | loss treino: 0.0323 | acc treino: 98.99% | loss val: 0.1070 | acc val: 96.94% | lr: 0.0000100
+  Melhor modelo salvo: vit_cifar10_best.pth
+Fase 2 | Época 13/20 | loss treino: 0.0280 | acc treino: 99.20% | loss val: 0.1083 | acc val: 96.98% | lr: 0.0000100
+  Melhor modelo salvo: vit_cifar10_best.pth
+Fase 2 | Época 14/20 | loss treino: 0.0249 | acc treino: 99.27% | loss val: 0.1082 | acc val: 96.98% | lr: 0.0000100
+Fase 2 | Época 15/20 | loss treino: 0.0245 | acc treino: 99.28% | loss val: 0.1103 | acc val: 96.92% | lr: 0.0000100
+Fase 2 | Época 16/20 | loss treino: 0.0203 | acc treino: 99.38% | loss val: 0.1092 | acc val: 96.94% | lr: 0.0000100
+Fase 2 | Época 17/20 | loss treino: 0.0196 | acc treino: 99.43% | loss val: 0.1100 | acc val: 97.08% | lr: 0.0000100
+  Melhor modelo salvo: vit_cifar10_best.pth
+Fase 2 | Época 18/20 | loss treino: 0.0169 | acc treino: 99.48% | loss val: 0.1117 | acc val: 96.88% | lr: 0.0000100
+Fase 2 | Época 19/20 | loss treino: 0.0154 | acc treino: 99.56% | loss val: 0.1117 | acc val: 97.08% | lr: 0.0000100
+Fase 2 | Época 20/20 | loss treino: 0.0132 | acc treino: 99.66% | loss val: 0.1129 | acc val: 97.06% | lr: 0.0000100
+
+Carregando melhor modelo...
+
+=================================================================
+RESULTADO FINAL — ViT-B/16 COM FINE TUNING
+Melhor precisão de validação: 97.08%
+Loss no teste               : 0.1078
+Precisão no teste           : 96.85%
+Tempo total                 : 26.15 minutos
+=================================================================
+
+RELATÓRIO DE CLASSIFICAÇÃO
+
+              precision    recall  f1-score   support
+
+    airplane     0.9675    0.9820    0.9747      1000
+  automobile     0.9800    0.9780    0.9790      1000
+        bird     0.9765    0.9550    0.9656      1000
+         cat     0.9185    0.9470    0.9325      1000
+        deer     0.9623    0.9690    0.9656      1000
+         dog     0.9622    0.9420    0.9520      1000
+        frog     0.9819    0.9770    0.9794      1000
+       horse     0.9809    0.9760    0.9784      1000
+        ship     0.9791    0.9820    0.9805      1000
+       truck     0.9780    0.9770    0.9775      1000
+
+    accuracy                         0.9685     10000
+   macro avg     0.9687    0.9685    0.9685     10000
+weighted avg     0.9687    0.9685    0.9685     10000
+
+
+Arquivos gerados:
+- vit_cifar10_best.pth
+- vit_classification_report.txt
+- vit_accuracy.png
+- vit_loss.png
+- vit_confusion_matrix.png
