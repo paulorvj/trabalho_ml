@@ -1,0 +1,55 @@
+(t2) PS D:\temp\ml\trabalho2> python .\lstm_binario.py
+GPU: NVIDIA GeForce RTX 4070
+
+Carregando dados...
+Treino: 1711 exemplos
+Teste : 734 exemplos
+Tamanho do vocabulário: 10819
+
+Iniciando treinamento...
+
+Época 01/15 | Loss: 0.6726 | Precisão treino: 0.6394 | F1 treino: 0.2884
+Época 02/15 | Loss: 0.6083 | Precisão treino: 0.7434 | F1 treino: 0.6206
+Época 03/15 | Loss: 0.4866 | Precisão treino: 0.8463 | F1 treino: 0.8120
+Época 04/15 | Loss: 0.3525 | Precisão treino: 0.9059 | F1 treino: 0.8944
+Época 05/15 | Loss: 0.2473 | Precisão treino: 0.9445 | F1 treino: 0.9354
+Época 06/15 | Loss: 0.1700 | Precisão treino: 0.9608 | F1 treino: 0.9549
+Época 07/15 | Loss: 0.1151 | Precisão treino: 0.9719 | F1 treino: 0.9672
+Época 08/15 | Loss: 0.0857 | Precisão treino: 0.9790 | F1 treino: 0.9752
+Época 09/15 | Loss: 0.0727 | Precisão treino: 0.9848 | F1 treino: 0.9819
+Época 10/15 | Loss: 0.0609 | Precisão treino: 0.9848 | F1 treino: 0.9821
+Época 11/15 | Loss: 0.0495 | Precisão treino: 0.9801 | F1 treino: 0.9770
+Época 12/15 | Loss: 0.0462 | Precisão treino: 0.9871 | F1 treino: 0.9846
+Época 13/15 | Loss: 0.0477 | Precisão treino: 0.9918 | F1 treino: 0.9903
+Época 14/15 | Loss: 0.0396 | Precisão treino: 0.9912 | F1 treino: 0.9897
+Época 15/15 | Loss: 0.0345 | Precisão treino: 0.9942 | F1 treino: 0.9931
+
+Tempo de treinamento: 3.50 segundos (0.06 minutos)
+
+Avaliando no conjunto de teste...
+
+============================================================
+RESULTADOS — LSTM BINÁRIA
+============================================================
+Precisão teste: 0.7030
+F1 teste       : 0.6989
+
+Matriz de confusão:
+[[263 161]
+ [ 57 253]]
+
+Relatório de classificação:
+              precision    recall  f1-score   support
+
+    negativo     0.8219    0.6203    0.7070       424
+    positivo     0.6111    0.8161    0.6989       310
+
+    accuracy                         0.7030       734
+   macro avg     0.7165    0.7182    0.7029       734
+weighted avg     0.7329    0.7030    0.7036       734
+
+
+Arquivos salvos em:
+D:\temp\ml\trabalho2\resultados
+
+Tempo total de execução: 5.06 segundos (0.08 minutos)

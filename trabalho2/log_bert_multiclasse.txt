@@ -1,0 +1,94 @@
+(t2) PS D:\temp\ml\trabalho2> python .\bert_multiclasse.py
+GPU: NVIDIA GeForce RTX 4070
+VRAM total: 11.99 GB
+
+Carregando dados...
+Treino: 1711 exemplos
+Teste : 734 exemplos
+
+Distribuição no treino:
+rotulo
+alegria     423
+tristeza    360
+desgosto    338
+neutro      158
+medo        154
+surpresa    141
+raiva       137
+Name: count, dtype: int64
+
+Carregando tokenizer e BERTimbau...
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 199/199 [00:00<00:00, 32301.33it/s]
+[transformers] BertForSequenceClassification LOAD REPORT from: neuralmind/bert-base-portuguese-cased
+Key                                        | Status     | Details
+-------------------------------------------+------------+--------
+cls.predictions.transform.dense.weight     | UNEXPECTED |
+cls.seq_relationship.weight                | UNEXPECTED |
+cls.predictions.decoder.weight             | UNEXPECTED |
+cls.predictions.transform.LayerNorm.weight | UNEXPECTED |
+cls.seq_relationship.bias                  | UNEXPECTED |
+cls.predictions.transform.dense.bias       | UNEXPECTED |
+cls.predictions.transform.LayerNorm.bias   | UNEXPECTED |
+cls.predictions.bias                       | UNEXPECTED |
+classifier.bias                            | MISSING    |
+classifier.weight                          | MISSING    |
+
+Notes:
+- UNEXPECTED:   can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+- MISSING:      those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.
+
+Iniciando treinamento...
+{'loss': '1.611', 'grad_norm': '12.05', 'learning_rate': '1.606e-05', 'epoch': '1'}
+{'loss': '1.18', 'grad_norm': '17.26', 'learning_rate': '1.206e-05', 'epoch': '2'}
+{'loss': '0.8861', 'grad_norm': '17.64', 'learning_rate': '8.075e-06', 'epoch': '3'}
+{'loss': '0.6691', 'grad_norm': '11.17', 'learning_rate': '4.075e-06', 'epoch': '4'}
+{'loss': '0.5314', 'grad_norm': '14.22', 'learning_rate': '7.477e-08', 'epoch': '5'}
+{'train_runtime': '68.98', 'train_samples_per_second': '124', 'train_steps_per_second': '15.51', 'train_loss': '0.9755', 'epoch': '5'}
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1070/1070 [01:08<00:00, 15.51it/s]
+
+Tempo de treinamento: 69.08 segundos (1.15 minutos)
+
+Avaliando no conjunto de teste...
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 92/92 [00:01<00:00, 67.47it/s]
+
+============================================================
+RESULTADOS — BERT MULTICLASSE
+============================================================
+Precisão teste      : 0.6172
+F1 ponderado teste  : 0.6112
+F1 macro teste      : 0.5758
+
+Ordem da matriz de confusão:
+['alegria', 'desgosto', 'medo', 'neutro', 'raiva', 'surpresa', 'tristeza']
+
+Matriz de confusão:
+[[138  13   0  15   0   3  12]
+ [ 10  87   9   6   3   3  27]
+ [  5  12  28   0   3   5  13]
+ [ 18  16   1  25   1   2   5]
+ [  1   9   3   4  35   2   5]
+ [ 16   2   1   1  11  29   1]
+ [  9  20   7   2   3   2 111]]
+
+Relatório de classificação:
+              precision    recall  f1-score   support
+
+     alegria     0.7005    0.7624    0.7302       181
+    desgosto     0.5472    0.6000    0.5724       145
+        medo     0.5714    0.4242    0.4870        66
+      neutro     0.4717    0.3676    0.4132        68
+       raiva     0.6250    0.5932    0.6087        59
+    surpresa     0.6304    0.4754    0.5421        61
+    tristeza     0.6379    0.7208    0.6768       154
+
+    accuracy                         0.6172       734
+   macro avg     0.5977    0.5634    0.5758       734
+weighted avg     0.6124    0.6172    0.6112       734
+
+Writing model shards: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  3.94it/s]
+
+Arquivos salvos em:
+D:\temp\ml\trabalho2\resultados
+
+Tempo total de execução: 72.53 segundos (1.21 minutos)

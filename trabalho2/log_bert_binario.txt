@@ -1,0 +1,68 @@
+(t2) PS D:\temp\ml\trabalho2> python .\bert_binario.py
+GPU: NVIDIA GeForce RTX 4070
+VRAM total: 11.99 GB
+
+Carregando dados...
+Treino: 1711 exemplos
+Teste : 734 exemplos
+
+Carregando tokenizer e BERTimbau...
+Loading weights: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 199/199 [00:00<00:00, 30496.78it/s]
+[transformers] BertForSequenceClassification LOAD REPORT from: neuralmind/bert-base-portuguese-cased
+Key                                        | Status     | Details
+-------------------------------------------+------------+--------
+cls.predictions.transform.LayerNorm.weight | UNEXPECTED |
+cls.predictions.bias                       | UNEXPECTED |
+cls.predictions.decoder.weight             | UNEXPECTED |
+cls.predictions.transform.LayerNorm.bias   | UNEXPECTED |
+cls.seq_relationship.bias                  | UNEXPECTED |
+cls.seq_relationship.weight                | UNEXPECTED |
+cls.predictions.transform.dense.weight     | UNEXPECTED |
+cls.predictions.transform.dense.bias       | UNEXPECTED |
+classifier.bias                            | MISSING    |
+classifier.weight                          | MISSING    |
+
+Notes:
+- UNEXPECTED:   can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+- MISSING:      those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.
+
+Iniciando treinamento...
+{'loss': '0.5153', 'grad_norm': '5.284', 'learning_rate': '1.606e-05', 'epoch': '1'}
+{'loss': '0.3424', 'grad_norm': '11.64', 'learning_rate': '1.207e-05', 'epoch': '2'}
+{'loss': '0.2348', 'grad_norm': '44.8', 'learning_rate': '8.093e-06', 'epoch': '3'}
+{'loss': '0.1626', 'grad_norm': '0.7555', 'learning_rate': '4.093e-06', 'epoch': '4'}
+{'loss': '0.1059', 'grad_norm': '0.06678', 'learning_rate': '9.346e-08', 'epoch': '5'}
+{'train_runtime': '85.23', 'train_samples_per_second': '100.4', 'train_steps_per_second': '12.55', 'train_loss': '0.2722', 'epoch': '5'}
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1070/1070 [01:25<00:00, 12.56it/s]
+
+Tempo de treinamento: 85.32 segundos (1.42 minutos)
+
+Avaliando no conjunto de teste...
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 92/92 [00:02<00:00, 36.75it/s]
+
+============================================================
+RESULTADOS — BERT BINÁRIA
+============================================================
+Precisão teste: 0.8460
+F1 teste       : 0.8126
+
+Matriz de confusão:
+[[376  48]
+ [ 65 245]]
+
+Relatório de classificação:
+              precision    recall  f1-score   support
+
+    negativo     0.8526    0.8868    0.8694       424
+    positivo     0.8362    0.7903    0.8126       310
+
+    accuracy                         0.8460       734
+   macro avg     0.8444    0.8386    0.8410       734
+weighted avg     0.8457    0.8460    0.8454       734
+
+Writing model shards: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  2.96it/s]
+
+Arquivos salvos em:
+D:\temp\ml\trabalho2\resultados
+
+Tempo total de execução: 90.07 segundos (1.50 minutos)
