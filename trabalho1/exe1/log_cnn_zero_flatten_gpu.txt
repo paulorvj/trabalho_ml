@@ -1,0 +1,157 @@
+(t1) PS D:\temp\ml\trabalho1\exercicios\exe1> python .\cnn_zero_flatten_gpu.py
+Dispositivo: cuda
+GPU: NVIDIA GeForce RTX 4070
+Treino: (50000, 32, 32, 3) | (50000,)
+Teste : (10000, 32, 32, 3) | (10000,)
+Treino após divisão: (45000, 32, 32, 3)
+Validação          : (5000, 32, 32, 3)
+Parâmetros treináveis: 815,018
+
+RESUMO DA ARQUITETURA
+
+===================================================================================================================
+Layer (type:depth-idx)                   Input Shape               Output Shape              Param #
+===================================================================================================================
+CNNZero                                  [1, 3, 32, 32]            [1, 10]                   --
+├─Sequential: 1-1                        [1, 3, 32, 32]            [1, 128, 4, 4]            --
+│    └─Conv2d: 2-1                       [1, 3, 32, 32]            [1, 32, 32, 32]           896
+│    └─BatchNorm2d: 2-2                  [1, 32, 32, 32]           [1, 32, 32, 32]           64
+│    └─ReLU: 2-3                         [1, 32, 32, 32]           [1, 32, 32, 32]           --
+│    └─Conv2d: 2-4                       [1, 32, 32, 32]           [1, 32, 32, 32]           9,248
+│    └─BatchNorm2d: 2-5                  [1, 32, 32, 32]           [1, 32, 32, 32]           64
+│    └─ReLU: 2-6                         [1, 32, 32, 32]           [1, 32, 32, 32]           --
+│    └─MaxPool2d: 2-7                    [1, 32, 32, 32]           [1, 32, 16, 16]           --
+│    └─Dropout: 2-8                      [1, 32, 16, 16]           [1, 32, 16, 16]           --
+│    └─Conv2d: 2-9                       [1, 32, 16, 16]           [1, 64, 16, 16]           18,496
+│    └─BatchNorm2d: 2-10                 [1, 64, 16, 16]           [1, 64, 16, 16]           128
+│    └─ReLU: 2-11                        [1, 64, 16, 16]           [1, 64, 16, 16]           --
+│    └─Conv2d: 2-12                      [1, 64, 16, 16]           [1, 64, 16, 16]           36,928
+│    └─BatchNorm2d: 2-13                 [1, 64, 16, 16]           [1, 64, 16, 16]           128
+│    └─ReLU: 2-14                        [1, 64, 16, 16]           [1, 64, 16, 16]           --
+│    └─MaxPool2d: 2-15                   [1, 64, 16, 16]           [1, 64, 8, 8]             --
+│    └─Dropout: 2-16                     [1, 64, 8, 8]             [1, 64, 8, 8]             --
+│    └─Conv2d: 2-17                      [1, 64, 8, 8]             [1, 128, 8, 8]            73,856
+│    └─BatchNorm2d: 2-18                 [1, 128, 8, 8]            [1, 128, 8, 8]            256
+│    └─ReLU: 2-19                        [1, 128, 8, 8]            [1, 128, 8, 8]            --
+│    └─Conv2d: 2-20                      [1, 128, 8, 8]            [1, 128, 8, 8]            147,584
+│    └─BatchNorm2d: 2-21                 [1, 128, 8, 8]            [1, 128, 8, 8]            256
+│    └─ReLU: 2-22                        [1, 128, 8, 8]            [1, 128, 8, 8]            --
+│    └─MaxPool2d: 2-23                   [1, 128, 8, 8]            [1, 128, 4, 4]            --
+│    └─Dropout: 2-24                     [1, 128, 4, 4]            [1, 128, 4, 4]            --
+├─Sequential: 1-2                        [1, 128, 4, 4]            [1, 10]                   --
+│    └─Flatten: 2-25                     [1, 128, 4, 4]            [1, 2048]                 --
+│    └─Linear: 2-26                      [1, 2048]                 [1, 256]                  524,544
+│    └─ReLU: 2-27                        [1, 256]                  [1, 256]                  --
+│    └─Dropout: 2-28                     [1, 256]                  [1, 256]                  --
+│    └─Linear: 2-29                      [1, 256]                  [1, 10]                   2,570
+===================================================================================================================
+Total params: 815,018
+Trainable params: 815,018
+Non-trainable params: 0
+Total mult-adds (M): 39.28
+===================================================================================================================
+Input size (MB): 0.01
+Forward/backward pass size (MB): 1.84
+Params size (MB): 3.26
+Estimated Total Size (MB): 5.11
+===================================================================================================================
+Época 01/50 | loss treino: 1.5293 | acc treino: 43.40% | loss val: 1.1767 | acc val: 56.76% | lr: 0.001000
+  Melhor modelo salvo: cnn_cifar10_flatten_best.pth
+Época 02/50 | loss treino: 1.1246 | acc treino: 60.04% | loss val: 1.0489 | acc val: 62.38% | lr: 0.001000
+  Melhor modelo salvo: cnn_cifar10_flatten_best.pth
+Época 03/50 | loss treino: 0.9705 | acc treino: 66.18% | loss val: 0.7930 | acc val: 71.84% | lr: 0.001000
+  Melhor modelo salvo: cnn_cifar10_flatten_best.pth
+Época 04/50 | loss treino: 0.8830 | acc treino: 69.49% | loss val: 0.7451 | acc val: 73.42% | lr: 0.001000
+  Melhor modelo salvo: cnn_cifar10_flatten_best.pth
+Época 05/50 | loss treino: 0.8105 | acc treino: 71.86% | loss val: 0.6908 | acc val: 75.58% | lr: 0.001000
+  Melhor modelo salvo: cnn_cifar10_flatten_best.pth
+Época 06/50 | loss treino: 0.7716 | acc treino: 73.49% | loss val: 0.6287 | acc val: 78.04% | lr: 0.001000
+  Melhor modelo salvo: cnn_cifar10_flatten_best.pth
+Época 07/50 | loss treino: 0.7216 | acc treino: 75.23% | loss val: 0.6615 | acc val: 77.46% | lr: 0.001000
+Época 08/50 | loss treino: 0.6884 | acc treino: 76.67% | loss val: 0.6387 | acc val: 78.46% | lr: 0.001000
+  Melhor modelo salvo: cnn_cifar10_flatten_best.pth
+Época 09/50 | loss treino: 0.6488 | acc treino: 78.02% | loss val: 0.6025 | acc val: 79.50% | lr: 0.001000
+  Melhor modelo salvo: cnn_cifar10_flatten_best.pth
+Época 10/50 | loss treino: 0.6241 | acc treino: 78.89% | loss val: 0.6098 | acc val: 79.14% | lr: 0.001000
+Época 11/50 | loss treino: 0.6016 | acc treino: 79.72% | loss val: 0.5646 | acc val: 80.40% | lr: 0.001000
+  Melhor modelo salvo: cnn_cifar10_flatten_best.pth
+Época 12/50 | loss treino: 0.5714 | acc treino: 80.59% | loss val: 0.6452 | acc val: 79.06% | lr: 0.001000
+Época 13/50 | loss treino: 0.5535 | acc treino: 81.37% | loss val: 0.5957 | acc val: 80.74% | lr: 0.001000
+  Melhor modelo salvo: cnn_cifar10_flatten_best.pth
+Época 14/50 | loss treino: 0.5402 | acc treino: 81.86% | loss val: 0.5056 | acc val: 82.26% | lr: 0.001000
+  Melhor modelo salvo: cnn_cifar10_flatten_best.pth
+Época 15/50 | loss treino: 0.5126 | acc treino: 82.64% | loss val: 0.5660 | acc val: 81.70% | lr: 0.001000
+Época 16/50 | loss treino: 0.4967 | acc treino: 83.27% | loss val: 0.5032 | acc val: 82.64% | lr: 0.001000
+  Melhor modelo salvo: cnn_cifar10_flatten_best.pth
+Época 17/50 | loss treino: 0.4795 | acc treino: 83.74% | loss val: 0.4892 | acc val: 83.20% | lr: 0.001000
+  Melhor modelo salvo: cnn_cifar10_flatten_best.pth
+Época 18/50 | loss treino: 0.4678 | acc treino: 84.26% | loss val: 0.5075 | acc val: 83.06% | lr: 0.001000
+Época 19/50 | loss treino: 0.4467 | acc treino: 84.95% | loss val: 0.4881 | acc val: 84.12% | lr: 0.001000
+  Melhor modelo salvo: cnn_cifar10_flatten_best.pth
+Época 20/50 | loss treino: 0.4368 | acc treino: 85.11% | loss val: 0.5065 | acc val: 83.44% | lr: 0.001000
+Época 21/50 | loss treino: 0.4272 | acc treino: 85.76% | loss val: 0.4786 | acc val: 84.04% | lr: 0.001000
+Época 22/50 | loss treino: 0.4116 | acc treino: 86.11% | loss val: 0.4477 | acc val: 85.24% | lr: 0.001000
+  Melhor modelo salvo: cnn_cifar10_flatten_best.pth
+Época 23/50 | loss treino: 0.4039 | acc treino: 86.38% | loss val: 0.4775 | acc val: 84.50% | lr: 0.001000
+Época 24/50 | loss treino: 0.3900 | acc treino: 87.03% | loss val: 0.4692 | acc val: 84.98% | lr: 0.001000
+Época 25/50 | loss treino: 0.3822 | acc treino: 87.21% | loss val: 0.4334 | acc val: 85.68% | lr: 0.001000
+  Melhor modelo salvo: cnn_cifar10_flatten_best.pth
+Época 26/50 | loss treino: 0.3780 | acc treino: 87.14% | loss val: 0.4744 | acc val: 84.16% | lr: 0.001000
+Época 27/50 | loss treino: 0.3618 | acc treino: 87.60% | loss val: 0.4665 | acc val: 84.88% | lr: 0.001000
+Época 28/50 | loss treino: 0.3588 | acc treino: 87.84% | loss val: 0.4516 | acc val: 85.40% | lr: 0.001000
+Época 29/50 | loss treino: 0.3451 | acc treino: 88.37% | loss val: 0.4409 | acc val: 86.16% | lr: 0.001000
+  Melhor modelo salvo: cnn_cifar10_flatten_best.pth
+Época 30/50 | loss treino: 0.3445 | acc treino: 88.25% | loss val: 0.4477 | acc val: 85.92% | lr: 0.000500
+Época 31/50 | loss treino: 0.2856 | acc treino: 90.12% | loss val: 0.4247 | acc val: 86.74% | lr: 0.000500
+  Melhor modelo salvo: cnn_cifar10_flatten_best.pth
+Época 32/50 | loss treino: 0.2679 | acc treino: 90.74% | loss val: 0.4224 | acc val: 87.18% | lr: 0.000500
+  Melhor modelo salvo: cnn_cifar10_flatten_best.pth
+Época 33/50 | loss treino: 0.2650 | acc treino: 90.97% | loss val: 0.4343 | acc val: 86.72% | lr: 0.000500
+Época 34/50 | loss treino: 0.2531 | acc treino: 91.16% | loss val: 0.4072 | acc val: 87.66% | lr: 0.000500
+  Melhor modelo salvo: cnn_cifar10_flatten_best.pth
+Época 35/50 | loss treino: 0.2436 | acc treino: 91.60% | loss val: 0.4260 | acc val: 87.58% | lr: 0.000500
+Época 36/50 | loss treino: 0.2407 | acc treino: 91.68% | loss val: 0.4256 | acc val: 87.54% | lr: 0.000500
+Época 37/50 | loss treino: 0.2377 | acc treino: 91.62% | loss val: 0.4152 | acc val: 87.34% | lr: 0.000500
+Época 38/50 | loss treino: 0.2310 | acc treino: 92.02% | loss val: 0.4164 | acc val: 87.24% | lr: 0.000500
+Época 39/50 | loss treino: 0.2317 | acc treino: 91.99% | loss val: 0.4205 | acc val: 87.38% | lr: 0.000250
+Época 40/50 | loss treino: 0.2047 | acc treino: 92.93% | loss val: 0.4133 | acc val: 87.90% | lr: 0.000250
+  Melhor modelo salvo: cnn_cifar10_flatten_best.pth
+Época 41/50 | loss treino: 0.1956 | acc treino: 93.20% | loss val: 0.4042 | acc val: 88.00% | lr: 0.000250
+  Melhor modelo salvo: cnn_cifar10_flatten_best.pth
+Época 42/50 | loss treino: 0.1854 | acc treino: 93.73% | loss val: 0.4270 | acc val: 87.76% | lr: 0.000250
+Época 43/50 | loss treino: 0.1822 | acc treino: 93.68% | loss val: 0.4105 | acc val: 87.88% | lr: 0.000250
+Época 44/50 | loss treino: 0.1790 | acc treino: 93.82% | loss val: 0.4166 | acc val: 87.66% | lr: 0.000250
+Época 45/50 | loss treino: 0.1759 | acc treino: 93.89% | loss val: 0.4187 | acc val: 87.84% | lr: 0.000250
+Época 46/50 | loss treino: 0.1751 | acc treino: 93.88% | loss val: 0.4160 | acc val: 88.18% | lr: 0.000125
+  Melhor modelo salvo: cnn_cifar10_flatten_best.pth
+Época 47/50 | loss treino: 0.1586 | acc treino: 94.49% | loss val: 0.4186 | acc val: 88.02% | lr: 0.000125
+Época 48/50 | loss treino: 0.1609 | acc treino: 94.49% | loss val: 0.4197 | acc val: 88.18% | lr: 0.000125
+Época 49/50 | loss treino: 0.1556 | acc treino: 94.59% | loss val: 0.4236 | acc val: 87.70% | lr: 0.000125
+Época 50/50 | loss treino: 0.1543 | acc treino: 94.68% | loss val: 0.4303 | acc val: 88.00% | lr: 0.000125
+
+Tempo total de treinamento: 2.48 minutos
+
+=================================================================
+Melhor precisão de validação: 88.18%
+Loss no teste               : 0.4337
+Precisão no teste           : 87.98%
+=================================================================
+
+RELATÓRIO DE CLASSIFICAÇÃO
+
+              precision    recall  f1-score   support
+
+    airplane     0.8519    0.9090    0.8795      1000
+  automobile     0.9320    0.9460    0.9390      1000
+        bird     0.8894    0.7960    0.8401      1000
+         cat     0.7541    0.7850    0.7692      1000
+        deer     0.8540    0.8890    0.8711      1000
+         dog     0.8295    0.7980    0.8135      1000
+        frog     0.9076    0.9230    0.9152      1000
+       horse     0.9243    0.9040    0.9141      1000
+        ship     0.9307    0.9270    0.9289      1000
+       truck     0.9322    0.9210    0.9266      1000
+
+    accuracy                         0.8798     10000
+   macro avg     0.8806    0.8798    0.8797     10000
+weighted avg     0.8806    0.8798    0.8797     10000

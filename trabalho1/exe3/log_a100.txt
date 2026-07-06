@@ -1,0 +1,89 @@
+(ml) paulo.rojunior@proj-comunicacoes:~/ml$ py fine_tuning_gpu_a100.py 
+Dispositivo: cuda
+GPU: NVIDIA A100 80GB PCIe
+Treino    : (45000, 32, 32, 3)
+Validação : (5000, 32, 32, 3)
+Teste     : (10000, 32, 32, 3)
+
+Carregando VGG16 pré-treinada no ImageNet...
+Parâmetros totais: 14,848,586
+
+=================================================================
+FASE 1 — TREINAMENTO DA CABEÇA CLASSIFICADORA
+=================================================================
+Fase 1 | Época 01/8 | loss treino: 0.8400 | acc treino: 71.87% | loss val: 0.5204 | acc val: 82.24%
+  Melhor modelo salvo: vgg16_cifar10_fine_tuning_best_a100.pth
+Fase 1 | Época 02/8 | loss treino: 0.5653 | acc treino: 80.52% | loss val: 0.4802 | acc val: 82.86%
+  Melhor modelo salvo: vgg16_cifar10_fine_tuning_best_a100.pth
+Fase 1 | Época 03/8 | loss treino: 0.5269 | acc treino: 81.66% | loss val: 0.4445 | acc val: 84.46%
+  Melhor modelo salvo: vgg16_cifar10_fine_tuning_best_a100.pth
+Fase 1 | Época 04/8 | loss treino: 0.5007 | acc treino: 82.28% | loss val: 0.4328 | acc val: 84.90%
+  Melhor modelo salvo: vgg16_cifar10_fine_tuning_best_a100.pth
+Fase 1 | Época 05/8 | loss treino: 0.4887 | acc treino: 82.98% | loss val: 0.4352 | acc val: 84.52%
+Fase 1 | Época 06/8 | loss treino: 0.4755 | acc treino: 83.41% | loss val: 0.4189 | acc val: 85.06%
+  Melhor modelo salvo: vgg16_cifar10_fine_tuning_best_a100.pth
+Fase 1 | Época 07/8 | loss treino: 0.4619 | acc treino: 83.73% | loss val: 0.4173 | acc val: 85.40%
+  Melhor modelo salvo: vgg16_cifar10_fine_tuning_best_a100.pth
+Fase 1 | Época 08/8 | loss treino: 0.4623 | acc treino: 83.68% | loss val: 0.4079 | acc val: 85.40%
+
+=================================================================
+FASE 2 — FINE TUNING DO BLOCO 5 DA VGG16
+=================================================================
+Fase 2 | Época 01/20 | loss treino: 0.3985 | acc treino: 85.95% | loss val: 0.3437 | acc val: 87.46% | lr: 0.0000200
+  Melhor modelo salvo: vgg16_cifar10_fine_tuning_best_a100.pth
+Fase 2 | Época 02/20 | loss treino: 0.3339 | acc treino: 88.40% | loss val: 0.3244 | acc val: 88.04% | lr: 0.0000200
+  Melhor modelo salvo: vgg16_cifar10_fine_tuning_best_a100.pth
+Fase 2 | Época 03/20 | loss treino: 0.3029 | acc treino: 89.56% | loss val: 0.2937 | acc val: 89.62% | lr: 0.0000200
+  Melhor modelo salvo: vgg16_cifar10_fine_tuning_best_a100.pth
+Fase 2 | Época 04/20 | loss treino: 0.2699 | acc treino: 90.66% | loss val: 0.2854 | acc val: 89.72% | lr: 0.0000200
+  Melhor modelo salvo: vgg16_cifar10_fine_tuning_best_a100.pth
+Fase 2 | Época 05/20 | loss treino: 0.2439 | acc treino: 91.42% | loss val: 0.2756 | acc val: 90.02% | lr: 0.0000200
+  Melhor modelo salvo: vgg16_cifar10_fine_tuning_best_a100.pth
+Fase 2 | Época 06/20 | loss treino: 0.2259 | acc treino: 92.39% | loss val: 0.2736 | acc val: 90.18% | lr: 0.0000200
+  Melhor modelo salvo: vgg16_cifar10_fine_tuning_best_a100.pth
+Fase 2 | Época 07/20 | loss treino: 0.2091 | acc treino: 92.67% | loss val: 0.2632 | acc val: 90.60% | lr: 0.0000200
+  Melhor modelo salvo: vgg16_cifar10_fine_tuning_best_a100.pth
+Fase 2 | Época 08/20 | loss treino: 0.1966 | acc treino: 93.22% | loss val: 0.2688 | acc val: 90.50% | lr: 0.0000200
+Fase 2 | Época 09/20 | loss treino: 0.1817 | acc treino: 93.74% | loss val: 0.2691 | acc val: 90.58% | lr: 0.0000200
+Fase 2 | Época 10/20 | loss treino: 0.1697 | acc treino: 94.10% | loss val: 0.2486 | acc val: 91.40% | lr: 0.0000200
+  Melhor modelo salvo: vgg16_cifar10_fine_tuning_best_a100.pth
+Fase 2 | Época 11/20 | loss treino: 0.1562 | acc treino: 94.63% | loss val: 0.2617 | acc val: 91.32% | lr: 0.0000200
+Fase 2 | Época 12/20 | loss treino: 0.1472 | acc treino: 94.83% | loss val: 0.2523 | acc val: 91.26% | lr: 0.0000200
+Fase 2 | Época 13/20 | loss treino: 0.1318 | acc treino: 95.37% | loss val: 0.2844 | acc val: 90.72% | lr: 0.0000200
+Fase 2 | Época 14/20 | loss treino: 0.1264 | acc treino: 95.68% | loss val: 0.2534 | acc val: 91.62% | lr: 0.0000100
+  Melhor modelo salvo: vgg16_cifar10_fine_tuning_best_a100.pth
+Fase 2 | Época 15/20 | loss treino: 0.1114 | acc treino: 96.16% | loss val: 0.2450 | acc val: 92.08% | lr: 0.0000100
+  Melhor modelo salvo: vgg16_cifar10_fine_tuning_best_a100.pth
+Fase 2 | Época 16/20 | loss treino: 0.1079 | acc treino: 96.40% | loss val: 0.2437 | acc val: 92.08% | lr: 0.0000100
+Fase 2 | Época 17/20 | loss treino: 0.1016 | acc treino: 96.54% | loss val: 0.2442 | acc val: 92.08% | lr: 0.0000100
+Fase 2 | Época 18/20 | loss treino: 0.0987 | acc treino: 96.62% | loss val: 0.2492 | acc val: 92.04% | lr: 0.0000100
+Fase 2 | Época 19/20 | loss treino: 0.0968 | acc treino: 96.66% | loss val: 0.2447 | acc val: 91.94% | lr: 0.0000100
+Fase 2 | Época 20/20 | loss treino: 0.0889 | acc treino: 97.05% | loss val: 0.2490 | acc val: 92.30% | lr: 0.0000050
+  Melhor modelo salvo: vgg16_cifar10_fine_tuning_best_a100.pth
+
+=================================================================
+RESULTADO FINAL — VGG16 COM FINE TUNING
+Melhor precisão de validação: 92.30%
+Loss no teste               : 0.2657
+Precisão no teste           : 91.92%
+Tempo total                 : 13.69 minutos
+=================================================================
+
+RELATÓRIO DE CLASSIFICAÇÃO
+
+              precision    recall  f1-score   support
+
+    airplane     0.9181    0.9420    0.9299      1000
+  automobile     0.9580    0.9570    0.9575      1000
+        bird     0.9169    0.8940    0.9053      1000
+         cat     0.8632    0.8140    0.8379      1000
+        deer     0.8865    0.9220    0.9039      1000
+         dog     0.8800    0.8580    0.8689      1000
+        frog     0.9336    0.9560    0.9447      1000
+       horse     0.9279    0.9400    0.9339      1000
+        ship     0.9542    0.9580    0.9561      1000
+       truck     0.9500    0.9510    0.9505      1000
+
+    accuracy                         0.9192     10000
+   macro avg     0.9189    0.9192    0.9189     10000
+weighted avg     0.9189    0.9192    0.9189     10000

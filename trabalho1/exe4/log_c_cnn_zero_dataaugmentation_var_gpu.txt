@@ -1,0 +1,159 @@
+(t1) PS D:\temp\ml\trabalho1\exercicios\exe4> python .\c_cnn_zero_dataaugmentation_var_gpu.py
+Dispositivo: cuda
+GPU: NVIDIA GeForce RTX 4070
+Treino: (50000, 32, 32, 3) | (50000,)
+Teste : (10000, 32, 32, 3) | (10000,)
+Treino após divisão: (45000, 32, 32, 3)
+Validação          : (5000, 32, 32, 3)
+Parâmetros treináveis: 815,018
+
+RESUMO DA ARQUITETURA
+
+===================================================================================================================
+Layer (type:depth-idx)                   Input Shape               Output Shape              Param #
+===================================================================================================================
+CNNZero                                  [1, 3, 32, 32]            [1, 10]                   --
+├─Sequential: 1-1                        [1, 3, 32, 32]            [1, 128, 4, 4]            --
+│    └─Conv2d: 2-1                       [1, 3, 32, 32]            [1, 32, 32, 32]           896
+│    └─BatchNorm2d: 2-2                  [1, 32, 32, 32]           [1, 32, 32, 32]           64
+│    └─ReLU: 2-3                         [1, 32, 32, 32]           [1, 32, 32, 32]           --
+│    └─Conv2d: 2-4                       [1, 32, 32, 32]           [1, 32, 32, 32]           9,248
+│    └─BatchNorm2d: 2-5                  [1, 32, 32, 32]           [1, 32, 32, 32]           64
+│    └─ReLU: 2-6                         [1, 32, 32, 32]           [1, 32, 32, 32]           --
+│    └─MaxPool2d: 2-7                    [1, 32, 32, 32]           [1, 32, 16, 16]           --
+│    └─Dropout: 2-8                      [1, 32, 16, 16]           [1, 32, 16, 16]           --
+│    └─Conv2d: 2-9                       [1, 32, 16, 16]           [1, 64, 16, 16]           18,496
+│    └─BatchNorm2d: 2-10                 [1, 64, 16, 16]           [1, 64, 16, 16]           128
+│    └─ReLU: 2-11                        [1, 64, 16, 16]           [1, 64, 16, 16]           --
+│    └─Conv2d: 2-12                      [1, 64, 16, 16]           [1, 64, 16, 16]           36,928
+│    └─BatchNorm2d: 2-13                 [1, 64, 16, 16]           [1, 64, 16, 16]           128
+│    └─ReLU: 2-14                        [1, 64, 16, 16]           [1, 64, 16, 16]           --
+│    └─MaxPool2d: 2-15                   [1, 64, 16, 16]           [1, 64, 8, 8]             --
+│    └─Dropout: 2-16                     [1, 64, 8, 8]             [1, 64, 8, 8]             --
+│    └─Conv2d: 2-17                      [1, 64, 8, 8]             [1, 128, 8, 8]            73,856
+│    └─BatchNorm2d: 2-18                 [1, 128, 8, 8]            [1, 128, 8, 8]            256
+│    └─ReLU: 2-19                        [1, 128, 8, 8]            [1, 128, 8, 8]            --
+│    └─Conv2d: 2-20                      [1, 128, 8, 8]            [1, 128, 8, 8]            147,584
+│    └─BatchNorm2d: 2-21                 [1, 128, 8, 8]            [1, 128, 8, 8]            256
+│    └─ReLU: 2-22                        [1, 128, 8, 8]            [1, 128, 8, 8]            --
+│    └─MaxPool2d: 2-23                   [1, 128, 8, 8]            [1, 128, 4, 4]            --
+│    └─Dropout: 2-24                     [1, 128, 4, 4]            [1, 128, 4, 4]            --
+├─Sequential: 1-2                        [1, 128, 4, 4]            [1, 10]                   --
+│    └─Flatten: 2-25                     [1, 128, 4, 4]            [1, 2048]                 --
+│    └─Linear: 2-26                      [1, 2048]                 [1, 256]                  524,544
+│    └─ReLU: 2-27                        [1, 256]                  [1, 256]                  --
+│    └─Dropout: 2-28                     [1, 256]                  [1, 256]                  --
+│    └─Linear: 2-29                      [1, 256]                  [1, 10]                   2,570
+===================================================================================================================
+Total params: 815,018
+Trainable params: 815,018
+Non-trainable params: 0
+Total mult-adds (M): 39.28
+===================================================================================================================
+Input size (MB): 0.01
+Forward/backward pass size (MB): 1.84
+Params size (MB): 3.26
+Estimated Total Size (MB): 5.11
+===================================================================================================================
+Época 01/50 | loss treino: 1.7099 | acc treino: 35.94% | loss val: 1.4131 | acc val: 46.56% | lr: 0.001000
+  Melhor modelo salvo: cnn_cifar10_augmentation_rotation_best.pth
+Época 02/50 | loss treino: 1.3824 | acc treino: 49.81% | loss val: 1.1433 | acc val: 57.84% | lr: 0.001000
+  Melhor modelo salvo: cnn_cifar10_augmentation_rotation_best.pth
+Época 03/50 | loss treino: 1.2501 | acc treino: 55.29% | loss val: 0.9830 | acc val: 62.86% | lr: 0.001000
+  Melhor modelo salvo: cnn_cifar10_augmentation_rotation_best.pth
+Época 04/50 | loss treino: 1.1693 | acc treino: 59.12% | loss val: 0.9319 | acc val: 66.28% | lr: 0.001000
+  Melhor modelo salvo: cnn_cifar10_augmentation_rotation_best.pth
+Época 05/50 | loss treino: 1.1011 | acc treino: 61.27% | loss val: 0.8303 | acc val: 69.74% | lr: 0.001000
+  Melhor modelo salvo: cnn_cifar10_augmentation_rotation_best.pth
+Época 06/50 | loss treino: 1.0389 | acc treino: 63.46% | loss val: 0.8672 | acc val: 69.20% | lr: 0.001000
+Época 07/50 | loss treino: 0.9951 | acc treino: 65.49% | loss val: 0.7622 | acc val: 73.14% | lr: 0.001000
+  Melhor modelo salvo: cnn_cifar10_augmentation_rotation_best.pth
+Época 08/50 | loss treino: 0.9632 | acc treino: 66.25% | loss val: 0.7046 | acc val: 74.42% | lr: 0.001000
+  Melhor modelo salvo: cnn_cifar10_augmentation_rotation_best.pth
+Época 09/50 | loss treino: 0.9233 | acc treino: 68.40% | loss val: 0.7433 | acc val: 73.34% | lr: 0.001000
+Época 10/50 | loss treino: 0.8885 | acc treino: 69.54% | loss val: 0.6995 | acc val: 75.12% | lr: 0.001000
+  Melhor modelo salvo: cnn_cifar10_augmentation_rotation_best.pth
+Época 11/50 | loss treino: 0.8672 | acc treino: 70.51% | loss val: 0.6313 | acc val: 77.60% | lr: 0.001000
+  Melhor modelo salvo: cnn_cifar10_augmentation_rotation_best.pth
+Época 12/50 | loss treino: 0.8347 | acc treino: 71.68% | loss val: 0.6848 | acc val: 76.78% | lr: 0.001000
+Época 13/50 | loss treino: 0.8090 | acc treino: 72.68% | loss val: 0.6266 | acc val: 78.52% | lr: 0.001000
+  Melhor modelo salvo: cnn_cifar10_augmentation_rotation_best.pth
+Época 14/50 | loss treino: 0.7931 | acc treino: 73.26% | loss val: 0.5889 | acc val: 79.50% | lr: 0.001000
+  Melhor modelo salvo: cnn_cifar10_augmentation_rotation_best.pth
+Época 15/50 | loss treino: 0.7711 | acc treino: 74.07% | loss val: 0.5801 | acc val: 79.54% | lr: 0.001000
+  Melhor modelo salvo: cnn_cifar10_augmentation_rotation_best.pth
+Época 16/50 | loss treino: 0.7512 | acc treino: 74.66% | loss val: 0.5571 | acc val: 80.46% | lr: 0.001000
+  Melhor modelo salvo: cnn_cifar10_augmentation_rotation_best.pth
+Época 17/50 | loss treino: 0.7375 | acc treino: 75.00% | loss val: 0.5588 | acc val: 81.34% | lr: 0.001000
+  Melhor modelo salvo: cnn_cifar10_augmentation_rotation_best.pth
+Época 18/50 | loss treino: 0.7174 | acc treino: 75.92% | loss val: 0.5578 | acc val: 80.48% | lr: 0.001000
+Época 19/50 | loss treino: 0.6988 | acc treino: 76.52% | loss val: 0.5476 | acc val: 82.02% | lr: 0.001000
+  Melhor modelo salvo: cnn_cifar10_augmentation_rotation_best.pth
+Época 20/50 | loss treino: 0.6816 | acc treino: 77.29% | loss val: 0.5547 | acc val: 81.34% | lr: 0.001000
+Época 21/50 | loss treino: 0.6777 | acc treino: 77.18% | loss val: 0.5140 | acc val: 82.40% | lr: 0.001000
+  Melhor modelo salvo: cnn_cifar10_augmentation_rotation_best.pth
+Época 22/50 | loss treino: 0.6601 | acc treino: 77.97% | loss val: 0.4883 | acc val: 83.66% | lr: 0.001000
+  Melhor modelo salvo: cnn_cifar10_augmentation_rotation_best.pth
+Época 23/50 | loss treino: 0.6390 | acc treino: 78.40% | loss val: 0.4945 | acc val: 83.28% | lr: 0.001000
+Época 24/50 | loss treino: 0.6312 | acc treino: 78.58% | loss val: 0.4824 | acc val: 83.48% | lr: 0.001000
+Época 25/50 | loss treino: 0.6196 | acc treino: 79.18% | loss val: 0.4634 | acc val: 84.36% | lr: 0.001000
+  Melhor modelo salvo: cnn_cifar10_augmentation_rotation_best.pth
+Época 26/50 | loss treino: 0.6135 | acc treino: 79.45% | loss val: 0.4822 | acc val: 83.36% | lr: 0.001000
+Época 27/50 | loss treino: 0.6037 | acc treino: 79.85% | loss val: 0.4676 | acc val: 83.86% | lr: 0.001000
+Época 28/50 | loss treino: 0.5962 | acc treino: 80.07% | loss val: 0.4198 | acc val: 85.94% | lr: 0.001000
+  Melhor modelo salvo: cnn_cifar10_augmentation_rotation_best.pth
+Época 29/50 | loss treino: 0.5818 | acc treino: 80.19% | loss val: 0.4467 | acc val: 85.12% | lr: 0.001000
+Época 30/50 | loss treino: 0.5804 | acc treino: 80.32% | loss val: 0.4477 | acc val: 85.00% | lr: 0.001000
+Época 31/50 | loss treino: 0.5738 | acc treino: 80.74% | loss val: 0.4337 | acc val: 85.68% | lr: 0.001000
+Época 32/50 | loss treino: 0.5627 | acc treino: 80.98% | loss val: 0.4565 | acc val: 85.06% | lr: 0.001000
+Época 33/50 | loss treino: 0.5547 | acc treino: 81.03% | loss val: 0.4253 | acc val: 85.44% | lr: 0.000500
+Época 34/50 | loss treino: 0.5104 | acc treino: 82.58% | loss val: 0.3857 | acc val: 87.00% | lr: 0.000500
+  Melhor modelo salvo: cnn_cifar10_augmentation_rotation_best.pth
+Época 35/50 | loss treino: 0.4973 | acc treino: 83.17% | loss val: 0.3982 | acc val: 87.08% | lr: 0.000500
+  Melhor modelo salvo: cnn_cifar10_augmentation_rotation_best.pth
+Época 36/50 | loss treino: 0.4954 | acc treino: 83.20% | loss val: 0.3851 | acc val: 87.50% | lr: 0.000500
+  Melhor modelo salvo: cnn_cifar10_augmentation_rotation_best.pth
+Época 37/50 | loss treino: 0.4880 | acc treino: 83.30% | loss val: 0.3876 | acc val: 87.42% | lr: 0.000500
+Época 38/50 | loss treino: 0.4845 | acc treino: 83.52% | loss val: 0.3775 | acc val: 87.36% | lr: 0.000500
+Época 39/50 | loss treino: 0.4821 | acc treino: 83.67% | loss val: 0.3768 | acc val: 87.26% | lr: 0.000500
+Época 40/50 | loss treino: 0.4770 | acc treino: 83.78% | loss val: 0.3829 | acc val: 86.80% | lr: 0.000500
+Época 41/50 | loss treino: 0.4674 | acc treino: 84.09% | loss val: 0.3724 | acc val: 87.72% | lr: 0.000500
+  Melhor modelo salvo: cnn_cifar10_augmentation_rotation_best.pth
+Época 42/50 | loss treino: 0.4636 | acc treino: 84.16% | loss val: 0.3856 | acc val: 87.46% | lr: 0.000500
+Época 43/50 | loss treino: 0.4634 | acc treino: 84.16% | loss val: 0.4055 | acc val: 86.64% | lr: 0.000500
+Época 44/50 | loss treino: 0.4614 | acc treino: 84.23% | loss val: 0.3597 | acc val: 88.02% | lr: 0.000500
+  Melhor modelo salvo: cnn_cifar10_augmentation_rotation_best.pth
+Época 45/50 | loss treino: 0.4582 | acc treino: 84.43% | loss val: 0.3811 | acc val: 87.50% | lr: 0.000500
+Época 46/50 | loss treino: 0.4569 | acc treino: 84.40% | loss val: 0.3718 | acc val: 87.92% | lr: 0.000500
+Época 47/50 | loss treino: 0.4504 | acc treino: 84.69% | loss val: 0.3768 | acc val: 87.88% | lr: 0.000500
+Época 48/50 | loss treino: 0.4486 | acc treino: 84.62% | loss val: 0.3838 | acc val: 87.40% | lr: 0.000500
+Época 49/50 | loss treino: 0.4494 | acc treino: 84.78% | loss val: 0.3535 | acc val: 88.08% | lr: 0.000500
+  Melhor modelo salvo: cnn_cifar10_augmentation_rotation_best.pth
+Época 50/50 | loss treino: 0.4468 | acc treino: 84.75% | loss val: 0.3595 | acc val: 88.04% | lr: 0.000500
+
+Tempo total de treinamento: 5.45 minutos
+
+=================================================================
+Melhor precisão de validação: 88.08%
+Loss no teste               : 0.3795
+Precisão no teste           : 87.32%
+=================================================================
+
+RELATÓRIO DE CLASSIFICAÇÃO
+
+              precision    recall  f1-score   support
+
+    airplane     0.8857    0.8600    0.8727      1000
+  automobile     0.9413    0.9460    0.9436      1000
+        bird     0.8338    0.8080    0.8207      1000
+         cat     0.8094    0.6920    0.7461      1000
+        deer     0.8587    0.8750    0.8668      1000
+         dog     0.8251    0.7970    0.8108      1000
+        frog     0.8921    0.9260    0.9087      1000
+       horse     0.8645    0.9380    0.8998      1000
+        ship     0.9041    0.9430    0.9232      1000
+       truck     0.9028    0.9470    0.9244      1000
+
+    accuracy                         0.8732     10000
+   macro avg     0.8717    0.8732    0.8717     10000
+weighted avg     0.8717    0.8732    0.8717     10000

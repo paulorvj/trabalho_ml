@@ -1,0 +1,68 @@
+(t1) PS D:\temp\ml\trabalho1\exe2> python.exe .\2_feature_extraction_gpu.py
+Dispositivo: cuda
+GPU: NVIDIA GeForce RTX 4070
+Tamanho de entrada da MobileNetV2: 224x224
+Treino: (50000, 32, 32, 3) | (50000,)
+Teste : (10000, 32, 32, 3) | (10000,)
+
+Carregando MobileNetV2 pré-treinada no ImageNet...
+Parâmetros totais      : 2,223,872
+Parâmetros treináveis  : 0
+A MobileNetV2 está congelada e será usada apenas como extrator.
+
+Extraindo características: treinamento
+  Lote 50/391 processado
+  Lote 100/391 processado
+  Lote 150/391 processado
+  Lote 200/391 processado
+  Lote 250/391 processado
+  Lote 300/391 processado
+  Lote 350/391 processado
+  Lote 391/391 processado
+Características extraídas: (50000, 1280)
+
+Extraindo características: teste
+  Lote 50/79 processado
+  Lote 79/79 processado
+Características extraídas: (10000, 1280)
+
+Características salvas em arquivos .npy
+Tempo de extração: 1.81 minutos
+
+Treinando Regressão Logística...
+D:\temp\ml\trabalho1\t1\lib\site-packages\sklearn\linear_model\_logistic.py:1272: FutureWarning: 'multi_class' was deprecated in version 1.5 and will be removed in 1.8. From then on, it will always use 'multinomial'. Leave it to its default value to avoid this warning.
+  warnings.warn(
+
+=================================================================
+MOBILENETV2 CONGELADA + REGRESSÃO LOGÍSTICA
+Precisão no teste: 86.05%
+Tempo de extração: 1.81 minutos
+Tempo do classificador: 3.75 minutos
+=================================================================
+
+RELATÓRIO DE CLASSIFICAÇÃO
+
+              precision    recall  f1-score   support
+
+    airplane     0.8735    0.8770    0.8752      1000
+  automobile     0.9168    0.9150    0.9159      1000
+        bird     0.8402    0.8310    0.8356      1000
+         cat     0.7870    0.7280    0.7564      1000
+        deer     0.8208    0.8290    0.8249      1000
+         dog     0.8026    0.8170    0.8097      1000
+        frog     0.8743    0.9110    0.8923      1000
+       horse     0.8773    0.8720    0.8746      1000
+        ship     0.9008    0.9170    0.9088      1000
+       truck     0.9062    0.9080    0.9071      1000
+
+    accuracy                         0.8605     10000
+   macro avg     0.8599    0.8605    0.8601     10000
+weighted avg     0.8599    0.8605    0.8601     10000
+
+
+Arquivos gerados:
+- cifar10_features_train.npy
+- cifar10_features_test.npy
+- mobilenetv2_logistic_regression.joblib
+- mobilenetv2_logistic_regression_report.txt
+- mobilenetv2_logistic_regression_confusion_matrix.png
